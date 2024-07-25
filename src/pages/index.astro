@@ -1,5 +1,5 @@
 ---
-export const prerender = false;
+export const prerender = true;
 
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -25,12 +25,11 @@ const posts = await getCollection(
     }
   </ul>
   <ul>
-    {
-      posts.map((p) => (
-        <li>
-          <a href={p.slug}>Read Post</a>
-        </li>
-      ))
+    {posts.map((p) => (
+    <li>
+      <a href=`/posts/${p.slug}/`>Read Post</a>
+    </li>
+    ))
     }
   </ul>
 </BaseLayout>
